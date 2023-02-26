@@ -1,8 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link,Outlet,useNavigate} from 'react-router-dom'
 
 export default function Navbar() {
-  return (
+  const navigate = useNavigate()
+  return (<>
     <nav className="navbar navbar-expand-lg" style={{backgroundColor:"#7754F6",color:"white"}}>
   <div className="container-fluid">
     <Link className="navbar-brand" to="#" style={{color:"white"}}>Navbar</Link>
@@ -15,7 +16,7 @@ export default function Navbar() {
           <Link className="nav-link active" aria-current="page" to="/Home" style={{color:"white"}}>Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/Profile" style={{color:"white"}}>Profile</Link>
+          <Link className="nav-link active" aria-current="page" to="profile" style={{color:"white"}}>Profile</Link>
         </li>
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color:"white"}}>
@@ -29,15 +30,18 @@ export default function Navbar() {
           </ul>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/reservation" style={{color:"white"}}>reservation</Link>
+          <Link className="nav-link active" aria-current="page" to="reservation" style={{color:"white"}}>reservation</Link>
         </li>
       </ul>
-      <form className="d-flex">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-light" type="submit">Search</button>
-      </form>
+      <div className="d-flex">
+        <button className="btn btn-outline-light" onClick={()=>{
+          localStorage.setItem('isLogged',false)
+          navigate('/login')
+        }}>Log out</button>
+      </div>
     </div>
   </div>
 </nav>
-  )
+<Outlet/>
+</>)
 }

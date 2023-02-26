@@ -1,6 +1,6 @@
 
 import React, { useState , useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { showPassword } from '../custom';
 import '../../style/aut.css';
 import appleicone from '../../images/icon-apple.svg';
@@ -14,6 +14,7 @@ function Login() {
     email: '',
     password: '',
   });
+  const navigate = useNavigate();
 
   useEffect(()=>{
     showPassword();
@@ -28,18 +29,20 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append('email',Data.email);
-    formData.append('password',Data.password);
-    console.log(formData)
-    fetch('http://localhost/react_server/api/Loginapi.php', {
-      method: 'POST',
-      body: formData,
+    // const formData = new FormData();
+    // formData.append('email',Data.email);
+    // formData.append('password',Data.password);
+    // console.log(formData)
+    // fetch('http://localhost/react_server/api/Loginapi.php', {
+    //   method: 'POST',
+    //   body: formData,
 
-    })
-      .then((response) => response.json())
-      .then((data) => {if(data.statue="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}})
-      .catch((error) => console.error(error));
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {if(data.statue="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}})
+    //   .catch((error) => console.error(error));
+    localStorage.setItem('isLogged',true)
+    navigate('/home')
   };
   
 
@@ -79,7 +82,7 @@ function Login() {
                     </div>
                     
                     <div class="d-grid mb-4">
-                        <button type="submit" class="btn btn-primary"><Link to='/home'>Log in</Link></button>
+                        <button type="submit" class="btn btn-primary">Log in</button>
                     </div>
 
                     <div class="mb-2">Don’t have an account? <Link to="/register">Sign up</Link></div>
