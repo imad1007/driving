@@ -4,10 +4,6 @@ import { Link,useNavigate } from 'react-router-dom';
 import { showPassword } from '../custom';
 import '../../style/aut.css';
 import loginBackground from '../../images/LoginBckground.jpg';
-import appleicone from '../../images/icon-apple.svg';
-import facebookicone from '../../images/icon-facebook.svg';
-import googleicon from '../../images/icon-google.svg';
-import twitericone from '../../images/icon-twitter.svg';
 
 function Login() {
     const [errormessage ,setErrormessage]=useState({show:false,message:""})
@@ -39,9 +35,8 @@ function Login() {
       body: formData,
 
     })
-    navigate('/home/user')
       .then((response) => response.json())
-      // .then((data) => {if(data.statue!=="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}else{localStorage.setItem('isLogged',true);navigate('/home/user')}})
+      .then((data) => {if(data.statue!=="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}else{localStorage.setItem('isLogged',true);navigate('/home/user')}})
       .catch((error) => console.error(error));
     
   };
@@ -52,6 +47,7 @@ function Login() {
     <>
     <div className="content">
     <div className="site-wrap d-md-flex align-items-stretch">
+      <h1>hemmoclea</h1>
         <div className="bg-img" style={{backgroundImage : "url("+loginBackground+")"}}></div>
         <div className="form-wrap">
             <div className="form-inner">
@@ -89,15 +85,6 @@ function Login() {
 
                     <div class="mb-2" style={{marginBottom:"40px"}}>Don’t have an account? <Link to="/register">Sign up</Link></div>
 
-                    {/* <div className="social-account-wrap">
-                        <h4 className="mb-4"><span>or continue with</span></h4>
-                        <ul className="list-unstyled social-account d-flex justify-content-between">
-                            <li><Link style={{border:"1px solid #e6e5e5"}} to="/"><img src={googleicon} alt="Google logo"/></Link></li>
-                            <li><Link style={{border:"1px solid #e6e5e5"}} to="/"><img src={facebookicone} alt="Facebook logo"/></Link></li>
-                            <li><Link style={{border:"1px solid #e6e5e5"}} to="/"><img src={appleicone} alt="Apple logo"/></Link></li>
-                            <li><Link style={{border:"1px solid #e6e5e5"}} to="/"><img src={twitericone} alt="Twitter logo"/></Link></li>
-                        </ul>
-                    </div> */}
                 </form>
             </div>
         </div>
