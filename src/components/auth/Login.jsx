@@ -3,6 +3,7 @@ import React, { useState , useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { showPassword } from '../custom';
 import '../../style/aut.css';
+import loginBackground from '../../images/LoginBckground.jpg';
 import appleicone from '../../images/icon-apple.svg';
 import facebookicone from '../../images/icon-facebook.svg';
 import googleicon from '../../images/icon-google.svg';
@@ -29,28 +30,29 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // const formData = new FormData();
-    // formData.append('email',Data.email);
-    // formData.append('password',Data.password);
-    // console.log(formData)
-    // fetch('http://localhost/react_server/api/Loginapi.php', {
-    //   method: 'POST',
-    //   body: formData,
+    const formData = new FormData();
+    formData.append('email',Data.email);
+    formData.append('password',Data.password);
+    console.log(formData)
+    fetch('https://abdelkarimauto-ecole.000webhostapp.com/api/login', {
+      method: 'POST',
+      body: formData,
 
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {if(data.statue="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}})
-    //   .catch((error) => console.error(error));
-    localStorage.setItem('isLogged',true)
-    navigate('/home')
+    })
+    navigate('/home/user')
+      .then((response) => response.json())
+      // .then((data) => {if(data.statue!=="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}else{localStorage.setItem('isLogged',true);navigate('/home/user')}})
+      .catch((error) => console.error(error));
+    
   };
+
   
 
   return (
     <>
     <div className="content">
     <div className="site-wrap d-md-flex align-items-stretch">
-        <div className="bg-img" style={{backgroundColor:"rgb(139, 56, 248)"}}></div>
+        <div className="bg-img" style={{backgroundImage : "url("+loginBackground+")"}}></div>
         <div className="form-wrap">
             <div className="form-inner">
                 <h1 className="title">Login</h1>
@@ -63,13 +65,13 @@ function Login() {
                         :""}
                 <form className="pt-3" onSubmit={handleSubmit}>
                     <div className="form-floating">
-                        <input type="email" className="form-control" id="email" placeholder="info@example.com" name="email" value={Data.email} onChange={handleInputChange} />
+                        <input type="email" className="form-control" id="email"  name="email" value={Data.email} onChange={handleInputChange} />
                         <label for="email">Email Address</label>
                     </div>
                     
                     <div className="form-floating">
                         <span className="password-show-toggle js-password-show-toggle"><span className="uil"></span></span>
-                        <input type="password" className="form-control" id="password" placeholder="Password" name="password" value={Data.password} onChange={handleInputChange}/>
+                        <input type="password" className="form-control" id="password"  name="password" value={Data.password} onChange={handleInputChange}/>
                         <label for="password">Password</label>
                     </div>
 
@@ -85,9 +87,9 @@ function Login() {
                         <button type="submit" class="btn btn-primary">Log in</button>
                     </div>
 
-                    <div class="mb-2">Don’t have an account? <Link to="/register">Sign up</Link></div>
+                    <div class="mb-2" style={{marginBottom:"40px"}}>Don’t have an account? <Link to="/register">Sign up</Link></div>
 
-                    <div className="social-account-wrap">
+                    {/* <div className="social-account-wrap">
                         <h4 className="mb-4"><span>or continue with</span></h4>
                         <ul className="list-unstyled social-account d-flex justify-content-between">
                             <li><Link style={{border:"1px solid #e6e5e5"}} to="/"><img src={googleicon} alt="Google logo"/></Link></li>
@@ -95,7 +97,7 @@ function Login() {
                             <li><Link style={{border:"1px solid #e6e5e5"}} to="/"><img src={appleicone} alt="Apple logo"/></Link></li>
                             <li><Link style={{border:"1px solid #e6e5e5"}} to="/"><img src={twitericone} alt="Twitter logo"/></Link></li>
                         </ul>
-                    </div>
+                    </div> */}
                 </form>
             </div>
         </div>

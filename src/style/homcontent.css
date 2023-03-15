@@ -1,0 +1,118 @@
+
+
+@media (min-width: 280px) {
+    .home_content {
+        max-width: 95%;
+        margin: auto;
+    }
+    .home_first_body,.home_second_body{
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-around;
+    }.home_section{
+        background-color:rgb(180, 180, 255);
+       
+        margin:auto;
+        border-radius:15px;
+        display:flex;
+        justify-content: space-between;
+        height: auto;
+    }
+
+    .home_section_image{
+        width: 50%;
+    }
+    .home_section_image img{
+        width: 100%;
+        height: 100%;
+    }
+    .home_section_title{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .home_section_title_content{
+        width: 75%;
+        margin: auto;
+    }
+    .home_section_title h1{
+        color:#232551;
+        font-weight: 700;
+    }
+    .home_section_title button{
+        border: none;
+        font-size: 15px;
+        border-radius: 7px;
+        color: white;
+        background-color: #ffbb00 ;
+
+    }
+    .home_register,.home_reservation,.home_pdf_learn,.home_reservation_historique{
+        width: 45%;
+        background-color: #484daf;
+        border-radius: 16px;
+        height: 35vh;
+        text-align: center;
+    }
+
+  }
+  .body_images{
+    width: 95%;
+    margin-top: 4px;
+    border-radius: 16px;
+}
+
+
+
+  @media (min-width: 1000px) {
+    .home_content {
+        max-width: 70%;
+        margin: auto;
+        
+    }
+    .home_section{
+        background-color:rgb(180, 180, 255);
+        margin:auto;
+        height:50vh;
+        border-radius:30px;
+        display:flex;
+        justify-content: space-between;
+    }
+    
+    .home_first_body,.home_second_body{
+        width: 80%;
+        margin: auto;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .home_register,.home_reservation,.home_pdf_learn,.home_reservation_historique{
+        width: 45%;
+        border-radius: 16px;
+        height: 55vh;
+        text-align: center;
+        background-color: #232551;
+        
+    }
+    .body_images{
+        width: 95%;
+        margin-top: 7px;
+        border-radius: 6px;
+    }
+    /* .home_body .body_icons{
+        font-size: 7rem;
+        color:#00da7f;
+        background-color: #dbffd3;
+        width: 40%;
+        text-align: center;
+        border-radius: 40px;
+        padding: 10px;
+        box-shadow: 3px 3px 10px 10px #dbffd3;
+        margin-top: 7px;
+    } */
+
+  }
+
