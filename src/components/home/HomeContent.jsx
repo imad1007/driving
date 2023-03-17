@@ -34,7 +34,7 @@ export default function HomeContent() {
     }
     <div className='home_content' style={{ display: displayContent }}>
       <div className="home_header">
-        <h1 style={{ color: '#232551', margin: '20px' }}>Welcome <span style={{ color: '#ffbb00', fontSize: '20px' }}>Imad</span></h1>
+        <h1 style={{ color: '#232551', margin: '20px' }}>Bonjour <span style={{ color: '#ffbb00', fontSize: '20px' }}>Imad</span></h1>
       </div>
       <div className="home_section">
         <div className="home_section_title" style={{ padding: '10px' }}>

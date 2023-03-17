@@ -22,7 +22,7 @@ export default function Navbar() {
           <Link className="nav-link active" aria-current="page" to="profile" style={{color:"#232551"}}>Compte</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="reservation" style={{color:"#232551"}}>reservation</Link>
+          <Link className="nav-link active" aria-current="page" to="reservation" style={{color:"#232551"}}>Reservation</Link>
         </li>
       </ul>
       <div className="d-flex" style={{alignItems:'center'}}>

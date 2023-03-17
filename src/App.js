@@ -8,6 +8,7 @@ import Contact from "./components/home/Contact";
 import Profile from "./components/home/Profile";
 import PageNotFound from "./components/PageNotFound";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Test from "./components/home/test";
 import HomeContent from "./components/home/HomeContent";
 import Index from "./components/Index";
 
@@ -21,6 +22,7 @@ function App() {
   <Routes>
     <Route path="/register" element={<Register/>}/>
     <Route path="/login" element={<Login/>}/>
+    <Route path="/test" element={<Test/>}/>
     <Route path="/" element={<Index/>}/>
     <Route element={<ProtectedRoutes/>}>
     <Route path="/home" element={<Home/>}>

@@ -41,14 +41,14 @@ function Register() {
     formData.append('phone', Data.phone);
     console.log(formData)
     
-    fetch('https://abdelkarimauto-ecole.000webhostapp.com/api/register', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
-      navigate('/login')
+  //   fetch('https://abdelkarimauto-ecole.000webhostapp.com/api/register', {
+  //     method: 'POST',
+  //     body: formData,
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data))
+  //     .catch((error) => console.error(error));
+  //     navigate('/login')
   };
 
   return (

@@ -35,23 +35,20 @@ export default function Reservation() {
 
   //ajouter un neveuax revervation
   const handlclick = () => {
-    const reservData = {
-      cin: cin,
-      id_user: 1,
-      day: calendar.toLocaleDateString('en-US', { weekday: 'long' }),
-      month: calendar.toLocaleDateString('en-US', { month: 'long' }),
-      date_pratique: calendar.getFullYear() + '-' + (calendar.getMonth() + 1) + '-' + calendar.getDate() + " " + houre
-    }
+    const formData = new FormData();
+    formData.append('cin', cin);
+    formData.append('id_user', 1);
+    formData.append('day', calendar.toLocaleDateString('en-US', { weekday: 'long' }));
+    formData.append('month', calendar.toLocaleDateString('en-US', { month: 'long' }));
+    formData.append('date_pratique', calendar.getFullYear() + '-' + (calendar.getMonth() + 1) + '-' + calendar.getDate() + " " + houre);
+
     fetch('https://abdelkarimauto-ecole.000webhostapp.com/api/createReservation', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(reservData)
+      body: formData
     })
     
 
-    navigate('historique_Reservation')
+    // navigate('historique_Reservation')
   }
 
   return (<>

@@ -36,7 +36,7 @@ function Login() {
 
     })
       .then((response) => response.json())
-      .then((data) => {if(data.statue!=="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}else{localStorage.setItem('isLogged',true);navigate('/home/user')}})
+      .then((data) => {if(data.statue!=="success"){setErrormessage((errmessage)=>({...errmessage,show:true,message:data.message}))}else{localStorage.setItem('isLoged',true);localStorage.setItem('user',JSON.stringify(data.user));navigate('/home/user')}})
       .catch((error) => console.error(error));
     
   };
