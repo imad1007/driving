@@ -3,6 +3,7 @@ import { Calendar } from 'react-calendar'
 import '../../style/calendar.css';
 import Loading from '../Loading';
 import { useNavigate } from 'react-router-dom'
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 export default function Reservation() {
@@ -46,7 +47,7 @@ export default function Reservation() {
       method: 'POST',
       body: formData
     })
-    
+
 
     // navigate('historique_Reservation')
   }
@@ -56,7 +57,7 @@ export default function Reservation() {
       loading === true ? <Loading /> : ""
     }
     <div className="allContent" style={displayContent}>
-      <h1 style={{textAlign:'center'}}>Choisissez le jour et l’heure</h1>
+      <h1 style={{ textAlign: 'center' }}>Choisissez le jour et l’heure</h1>
       <div className="content">
         <Calendar onChange={setCalendar} value={calendar} />
       </div>
@@ -74,7 +75,29 @@ export default function Reservation() {
             <label for="email">CIN</label>
           </div>
           <div class="d-grid mb-4">
-            <button type="button" onClick={handlclick} style={{backgroundColor:"#ffbb00",color:'white'}} class="btn ">Reserver</button>
+            <div id="paypal-button-container"></div>
+            <button type="button" onClick={handlclick} style={{ backgroundColor: "#ffbb00", color: 'white' }} class="btn ">Reserver</button>
+            <PayPalScriptProvider options={{ "client-id": "test" }}>
+              <PayPalButtons fundingSource={["paypal", "credit"]} style={{ layout: "horizontal" }}
+                createOrder={(data, actions) => {
+                  return actions.order.create({
+                    purchase_units: [
+                      {
+                        amount: {
+                          value: "10.00",
+                        },
+                      },
+                    ],
+                  });
+                }}
+                onApprove={(data, actions) => {
+                  return actions.order.capture().then(function (details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                  });
+                }}
+                
+              />
+            </PayPalScriptProvider>
           </div>
         </form>
       </div>

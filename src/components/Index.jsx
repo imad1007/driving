@@ -14,6 +14,8 @@ import TickIcon from '../assets/img/manager/tick.png'
 import MarketerIcon from '../assets/img/marketer/marketer.png'
 import Marketing01 from '../assets/img/marketing/marketing01.png'
 import Marketing02 from '../assets/img/marketing/marketing02.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {} from '@fortawesome/free-regular-svg-icons'
 import Marketing03 from '../assets/img/marketing/marketing03.png'
 
 
@@ -38,8 +40,8 @@ export default function Index() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6 text-md-start text-center py-6">
-              <h1 className="mb-4 fs-9 fw-bold">The Design Thinking Superpowers</h1>
-              <p className="mb-6 lead text-secondary">Tools tutorials, design and innovation experts, all<br className="d-none d-xl-block" />in one place! The most intuitive way to imagine<br className="d-none d-xl-block" />your next user experience.</p>
+              <h1 className="mb-4 fs-9 fw-bold">Apprenez à conduire de manière moderne et plus simple</h1>
+              <p className="mb-6 lead text-secondary">Vous pouvez réserver des cours de conduite  <br className="d-none d-xl-block" />et vous inscrire uniquement<br className="d-none d-xl-block" />depuis votre domicile et via votre téléphone.</p>
               <div className="text-center text-md-start"><a className="btn btn-warning me-3 btn-lg" href="#!" role="button">Get started</a></div>
             </div>
             <div className="col-md-6 text-end"><img className="pt-7 pt-md-0 img-fluid" src={HeroIcon} alt="" /></div>

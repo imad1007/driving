@@ -10,6 +10,7 @@ import PageNotFound from "./components/PageNotFound";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Test from "./components/home/test";
 import HomeContent from "./components/home/HomeContent";
+import Inscription from "./components/home/Inscription";
 import Index from "./components/Index";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <Route element={<ProtectedRoutes/>}>
     <Route path="/home" element={<Home/>}>
       <Route path="user" element={<HomeContent/>}/>
+      <Route path="inscription" element={<Inscription/>}/>
       <Route path="profile" element={<Profile/>}/>
       <Route path="contact" element={<Contact/>}/>
       <Route path="reservation" element={<Reservation/>}/>
